@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Early Birthday, Chief!</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #f06, #ffcc00);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        
+        .container {
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px #000;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 span {
+            display: inline-block;
+            margin: 0 2px;  /* Reduced margin to bring the letters closer */
+            animation: wave 1s ease-in-out infinite;
+        }
+
+        h1 span:nth-child(odd) {
+            animation-delay: 0.1s;
+        }
+
+        h1 span:nth-child(even) {
+            animation-delay: 0.2s;
+        }
+
+        @keyframes wave {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .balloons {
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+        }
+
+        .balloon {
+            width: 50px;
+            height: 70px;
+            background: radial-gradient(circle at 50% 35%, #ff3b3b, #d21d1d);
+            border-radius: 50%;
+            position: absolute;
+            animation: floatUp 12s ease-in-out forwards;
+            transform-origin: bottom center;
+        }
+
+        .balloon::after {
+            content: '';
+            width: 2px;
+            height: 100px;
+            background: #555;
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .balloon:nth-child(2) {
+            background: radial-gradient(circle at 50% 35%, #34c3eb, #1d82d2);
+        }
+        
+        .balloon:nth-child(3) {
+            background: radial-gradient(circle at 50% 35%, #ffdb3b, #d2b91d);
+        }
+        
+        .balloon:nth-child(4) {
+            background: radial-gradient(circle at 50% 35%, #34eb52, #1dbb2a);
+        }
+        
+        .balloon:nth-child(5) {
+            background: radial-gradient(circle at 50% 35%, #eb34d2, #bb1d99);
+        }
+        
+        .balloon:nth-child(6) {
+            background: radial-gradient(circle at 50% 35%, #ffa34b, #d27c1d);
+        }
+
+        .balloon:nth-child(7) {
+            background: radial-gradient(circle at 50% 35%, #a34bff, #7c1dd2);
+        }
+
+        .balloon:nth-child(8) {
+            background: radial-gradient(circle at 50% 35%, #4bffa3, #1dd27c);
+        }
+
+        .balloon:nth-child(9) {
+            background: radial-gradient(circle at 50% 35%, #ff4b4b, #d21d1d);
+        }
+
+        .balloon:nth-child(10) {
+            background: radial-gradient(circle at 50% 35%, #4b4bff, #1d1dd2);
+        }
+
+        .balloon:nth-child(1) {
+            animation-duration: 10s;
+            left: 10%;
+        }
+        
+        .balloon:nth-child(2) {
+            animation-duration: 12s;
+            left: 20%;
+        }
+        
+        .balloon:nth-child(3) {
+            animation-duration: 14s;
+            left: 30%;
+        }
+        
+        .balloon:nth-child(4) {
+            animation-duration: 16s;
+            left: 40%;
+        }
+        
+        .balloon:nth-child(5) {
+            animation-duration: 18s;
+            left: 50%;
+        }
+
+        .balloon:nth-child(6) {
+            animation-duration: 12.5s;
+            left: 60%;
+        }
+
+        .balloon:nth-child(7) {
+            animation-duration: 14.5s;
+            left: 70%;
+        }
+
+        .balloon:nth-child(8) {
+            animation-duration: 10.5s;
+            left: 80%;
+        }
+
+        .balloon:nth-child(9) {
+            animation-duration: 15.5s;
+            left: 90%;
+        }
+
+        .balloon:nth-child(10) {
+            animation-duration: 13.5s;
+            left: 95%;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(-150%);
+            }
+        }
+
+        .cake {
+            width: 180px;
+            height: 120px;
+            background: #ffcc99;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            z-index: 1;
+        }
+
+        .cake::before, .cake::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 30px;
+            background: #ff9966;
+            border-radius: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cake::before {
+            top: -30px;
+        }
+
+        .cake::after {
+            top: -60px;
+            width: 120px;
+            background: #ff6666;
+        }
+
+        .cake .candle {
+            position: absolute;
+            width: 10px;
+            height: 30px;
+            background: #ff9933;
+            left: 50%;
+            top: -90px;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .cake .flame {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, #ffff66, #ff6600);
+            border-radius: 50%;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: flicker 0.2s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-50%) translateY(-3px);
+                opacity: 0.7;
+            }
+        }
+
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.8);
+            opacity: 0;
+            transform: scale(0);
+            animation: firework 2s ease-in-out infinite;
+        }
+
+        .firework:nth-child(1) {
+            left: 20%;
+            top: 20%;
+            animation-delay: 0.5s;
+        }
+
+        .firework:nth-child(2) {
+            left: 50%;
+            top: 30%;
+            animation-delay: 1s;
+        }
+
+        .firework:nth-child(3) {
+            left: 80%;
+            top: 25%;
+            animation-delay: 1.5s;
+        }
+
+        .firework:nth-child(4) {
+            left: 30%;
+            top: 60%;
+            animation-delay: 2s;
+        }
+
+        .firework:nth-child(5) {
+            left: 70%;
+            top: 55%;
+            animation-delay: 2.5s;
+        }
+
+        @keyframes firework {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="balloons">
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+        </div>
+        <h1>
+            <span>H</span>
+            <span>a</span>
+            <span>p</span>
+            <span>p</span>
+            <span>y</span>
+            <span> </span>
+            <span>E</span>
+            <span>a</span>
+            <span>r</span>
+            <span>l</span>
+            <span>y</span>
+            <span> </span>
+            <span>B</span>
+            <span>i</span>
+            <span>r</span>
+            <span>t</span>
+            <span>h</span>
+            <span>d</span>
+            <span>a</span>
+            <span>y</span>
+            <span>,</span>
+            <span> </span>
+            <span>C</span>
+            <span>h</span>
+            <span>i</span>
+            <span>e</span>
+            <span>f</span>
+            <span>!</span>
+        </h1>
+        <div class="cake">
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.querySelector(".cake").style.display = "block";
+            }, 12000);
+        });
+    </script>
+</body>
+</html>
+
